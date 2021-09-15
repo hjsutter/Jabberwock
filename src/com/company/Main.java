@@ -38,14 +38,38 @@ public class Main {
             }
             String varName = stack.pop();
             vals.put(varName, value);
-//            if(vals.get(varName) != null) {
-                System.out.println(vals.get(varName));
-//            }
         } else {
             String param2 = stack.pop();
+            if(Character.isLetter(param2.charAt(0))){
+                param2 = vals.get(param2);
+            }
             String operator = stack.pop();
             String param1 = stack.pop();
+            if(Character.isLetter(param1.charAt(0))){
+                param1 = vals.get(param1);
+            }
+            if(operator.equals("..")){
+                concatenate(param1, param2);
+            } else if (operator.equals("||")){
+
+            } else if (operator.equals("#")){
+
+            }
         }
         return "";
+    }
+
+    public static String concatenate(String x, String y) {
+        return x + y;
+    }
+    public static String interleave(String x, String y){
+        return "";
+    }
+    public static String splice(String x, String y){
+        int mid = y.length()/2;
+        String[] split = new String[2];
+        split[0] = y.substring(0, mid);
+        split[1] = y.substring(mid);
+        return split[0] + x + split[1];
     }
 }
