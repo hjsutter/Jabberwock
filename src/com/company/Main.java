@@ -71,18 +71,19 @@ public class Main {
             }
             //Pushes the result of the operation on the stack and continues to the next operation
             stack.push(result);
-            //At this point all operations should be done and the variable should be stored in the map
-            String value = stack.pop();
-            if (value.length() > 2019) {
-                value = "undefined";
-            }
-            String varName = stack.pop();
-            vals.put(varName, value);
         }
+        //At this point all operations should be done and the variable should be stored in the map
+        String value = stack.pop();
+        if (value.length() > 2019) {
+            value = "undefined";
+        }
+        String varName = stack.pop();
+        vals.put(varName, value);
     }
 
+
     public static String concatenate(String x, String y) {
-        if(x.equals("undefined") || y.equals("undefined")){
+        if (x.equals("undefined") || y.equals("undefined")) {
             return "undefined";
         } else {
             return x + y;
@@ -120,14 +121,14 @@ public class Main {
                 result.append(charsX[i]);
             }
         }
-        if(x.equals("undefined") || y.equals("undefined")){
+        if (x.equals("undefined") || y.equals("undefined")) {
             result.replace(0, result.length(), "undefined");
         }
         return result.toString();
     }
 
     public static String splice(String x, String y) {
-        if(x.equals("undefined") || y.equals("undefined")){
+        if (x.equals("undefined") || y.equals("undefined")) {
             return "undefined";
         }
         int mid = y.length() / 2;
